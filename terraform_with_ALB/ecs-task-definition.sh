@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-imageTag=$(aws ecr describe-images --repository-name node --query 'sort_by(imageDetails,& imagePushedAt)[-1].imageTags[0]')
+imageTag=$(aws ecr describe-images --repository-name <changeme> --query 'sort_by(imageDetails,& imagePushedAt)[-1].imageTags[0]')
 imageTag=`sed -e 's/^"//' -e 's/"$//' <<<"$imageTag"`
 # Generate a JSON object containing the image tag
 
